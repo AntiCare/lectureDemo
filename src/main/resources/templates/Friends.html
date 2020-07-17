@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/Friends.css"
+          type="text/css"  th:href="@{~/Friends.css}"/>
+</head>
+<body>
+
+<div id="app">
+    <header id="header">
+        <h1>Friends</h1>
+        <h3>without a friend the game is a wilderness.</h3>
+    </header>
+
+    <div class="navbar">
+        <a th:href="@{/hello/Game}">Game</a>
+        <a th:href="@{/hello/Expansion}">Expansion</a>
+        <a th:href="@{/hello/Schedule}">Schedule</a>
+        <a href="#" class="right">Language</a>
+    </div>
+
+    <div class="row">
+
+        <div class="side">
+            <h1>Find Friend Here </h1>
+
+            <div class = "AddGameBox">
+                <h2>Add Friend</h2>
+                <form action="/hello/addFriend" method="POST">
+                    <p>Friend Name</p>
+                    <input type="text" name="friendName" placeholder="enter friend name">
+                    <p>Friend Age</p>
+                    <input type="text" name="age" placeholder="enter friend age">
+                    <p>Friend level</p>
+                    <input type="text" name="gameLevel" placeholder="friend game level">
+                    <input type="submit"  name="" value="Add">
+                </form>
+            </div>
+        </div>
+    <div class="main">
+        <br>
+        <div class="fakeimg" th:each="myfriends: ${friends}">
+            <h2 th:text="${myfriends.friendName}"></h2>
+            <p th:text="Age+': '+${myfriends.age}"></p>
+            <p th:text="GameLevel+': '+${myfriends.gameLevel}"></p>
+        </div>
+    </div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>

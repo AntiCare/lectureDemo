@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body,
+#app {
+    height: 100%;
+}
+
+#header,
+#footer {
+    height: 50px;
+    background-color: burlywood;
+    text-align: center;
+    line-height: 50px;
+}
+
+#aside {
+    height: calc(100% - 100px);
+    width: 800px;
+    text-align: center;
+    background-color: aquamarine;
+    float: left;
+}
+
+#main {
+    height: calc(100% - 100px);
+    width: calc(100% - 800px);
+    background-color: #eee;
+    text-align: center;
+    overflow: hidden; //使其成为BFC，清除浮动，因为浮动也是一个BFC，两个BFC不会重叠
+}
+
