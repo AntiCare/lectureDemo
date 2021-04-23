@@ -9,14 +9,34 @@
 </head>
   <body>
      <div class = "loginBox">
-         <img src="https://lh3.googleusercontent.com/owlT4kB9nbPDE9gPndgIPeICjBW4HrR_ecHQXgzBPvS8glXdAL6Vua9l3QNMb-h_Mpw" class="user" >
+         <img src="/image/img1.png" class="user" >
          <h2>Log In Here</h2>
-         <form action="/hello/game">
+
+         <header>
+         <script>
+         function checkFormat(){
+             var emailInput = document.forms["mForm"]["email"].value;
+             var a = emailInput.indexOf("@");
+             var b = emailInput.lastIndexOf(".");
+             if (a<1 || b<a+2 || b+2 >= emailInput.length){
+                 alert("Email format error! Please enter the correct email.");
+                 return false;
+             }
+             var passwordInput = document.forms["mForm"]["password"].value;
+             if (passwordInput === "" || passwordInput==null){
+                 alert("Please enter password!");
+                 return false;
+             }
+         }
+         </script>
+         </header>
+
+         <form name="mForm" action="/hello/game" onsubmit="return checkFormat()" >
              <p>Email</p>
-             <input type="text" name="" placeholder="Enter Email">
+             <input name="email"  type="text"   placeholder="Enter Email">
              <p>Password</p>
-             <input type="password" name="" placeholder="Password">
-             <input type="submit"  name="" value="Sign In">
+             <input name="password" type="password"  placeholder="Password">
+             <input type="submit"   value="Sign In">
              <a href="/hello/register">Register account</a>
          </form>
      </div>
