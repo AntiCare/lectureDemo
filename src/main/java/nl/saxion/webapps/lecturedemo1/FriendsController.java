@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/hello")
 public class FriendsController {
 
-    @GetMapping(path = "/Friends")
+    @GetMapping(path = "/friends")
     public String Friends(Model model){
         model.addAttribute("friends", FriendsDataProvider.getFriends());
         return "Friends";

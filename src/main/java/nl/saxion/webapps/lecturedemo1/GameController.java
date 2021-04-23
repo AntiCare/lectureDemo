@@ -20,17 +20,23 @@ public class GameController {
         return "Login";
     }
 
-    @GetMapping(path = "/Game")
+    @GetMapping(path = "/register")
+    public String register(){
+        return "Register";
+    }
+
+
+    @GetMapping(path = "/game")
     public String Game(){
         return "Game";
     }
 
-    @GetMapping(path = "/Expansion")
+    @GetMapping(path = "/expansion")
     public String Expansion(){
         return "Expansion";
     }
 
-    @GetMapping(path = "/AddGame")
+    @GetMapping(path = "/addGame")
     public String AddGame(){
         return "AddGame";
     }

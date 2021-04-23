@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/hello")
 public class ScheduleController {
-    @GetMapping(path = "/Schedule")
+    @GetMapping(path = "/schedule")
     public String Schedule(Model model){
         model.addAttribute("schedules", ScheduleDataProvider.getSchedules());
         return "Schedule";

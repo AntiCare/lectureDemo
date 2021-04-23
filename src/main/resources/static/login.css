@@ -2,7 +2,7 @@ body
 {
     margin: 0;
     padding: 0;
-    background: url("https://images.wallpapersden.com/image/download/warrior-girl-in-cyberpunk-city_68859_2560x1440.jpg");
+    background-image: url('/image/bookshop2.jpg');
     background-size: cover;
     font-family: sans-serif;
 }
@@ -10,7 +10,7 @@ body
 {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 30%;
     transform: translate(-50%,-50%);
     width:350px;
     height: 420px;
@@ -81,8 +81,8 @@ h2
 }
 .loginBox a
 {
-    color:#fff;
-    font-size: 14px;
+    color:#efed40;
+    font-size: 16px;
     font-weight: bold;
     text-decoration: none;
 }
