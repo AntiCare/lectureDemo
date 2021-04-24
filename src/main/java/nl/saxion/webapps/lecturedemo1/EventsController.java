@@ -1,7 +1,7 @@
 package nl.saxion.webapps.lecturedemo1;
 
-import nl.saxion.webapps.lecturedemo1.moduls.Friends;
-import nl.saxion.webapps.lecturedemo1.moduls.FriendsDataProvider;
+import nl.saxion.webapps.lecturedemo1.moduls.Event;
+import nl.saxion.webapps.lecturedemo1.moduls.EventsDataProvider;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,20 +14,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/hello")
-public class FriendsController {
+public class EventsController {
 
-    @GetMapping(path = "/friends")
-    public String Friends(Model model){
-        model.addAttribute("friends", FriendsDataProvider.getFriends());
-        return "Friends";
+    @GetMapping(path = "/events")
+    public String Events(Model model){
+        model.addAttribute("events", EventsDataProvider.getEvents());
+        return "Events";
     }
 
-    @PostMapping("/addFriend")
+    @PostMapping("/addEvent")
     @ResponseBody
-    public ResponseEntity<Friends> addFriend(Friends friends) {
-        FriendsDataProvider.addFriend(friends);
+    public ResponseEntity<Event> addEvent(Event events) {
+        EventsDataProvider.addEvent(events);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Location", "/hello/Friends");
+        headers.add("Location", "/hello/events");
         return new ResponseEntity<>(headers, HttpStatus.SEE_OTHER);
     }
 

@@ -39,7 +39,7 @@ body,
     color: #D368E9;
     padding: 20px;
 }
-.fakeimg {
+.event {
     background-color: rgba(0,0,0,.5);
     color: #efed40;
     width: 400px;
@@ -57,7 +57,6 @@ body,
     background-size: cover;
     padding: 20px;
     min-height: 800px;
-
 }
 /* 导航 */
 .navbar {
@@ -86,7 +85,7 @@ body,
     color: black;
 }
 
-.AddGameBox
+.AddEventBox
 {
     position: absolute;
     top: 400px;
@@ -105,20 +104,19 @@ h2
     color:#efed40;
     text-align: center;
 }
-.AddGameBox p
+.AddEventBox p
 {
     margin: 0;
     padding: 0;
     font-weight: bold;
     color:#fff;
 }
-.AddGameBox input
+.AddEventBox input
 {
     width:100%;
     margin-bottom:20px;
 }
-.AddGameBox input[type="text"],
-.AddGameBox input[type="password"]
+.AddEventBox input[type="text"]
 {
     border: none;
     border-bottom: 1px solid #ffffff;
@@ -132,7 +130,7 @@ h2
 {
     color:rgba(255,255,255,.5);
 }
-.AddGameBox input[type="submit"]
+.AddEventBox input[type="submit"]
 {
     border: none;
     outline: none;
@@ -143,15 +141,20 @@ h2
     cursor:pointer;
     border-radius: 20px;
 }
-.AddGameBox input[type="submit"]:hover
+.AddEventBox input[type="submit"]:hover
 {
     background: #efed40;
     color: #262626;
 }
-.AddGameBox a
+.AddEventBox a
 {
     color:#fff;
     font-size: 14px;
     font-weight: bold;
     text-decoration: none;
+}
+
+#description ,#amount ,#date{
+    font-size: 18px;
+    line-height: 32px;
 }

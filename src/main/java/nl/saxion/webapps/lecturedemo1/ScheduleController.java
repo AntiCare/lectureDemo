@@ -26,7 +26,7 @@ public class ScheduleController {
     public ResponseEntity<Schedule> addSchedule(Schedule schedule) {
         ScheduleDataProvider.addSchedule(schedule);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Location", "/hello/Schedule");
+        headers.add("Location", "/hello/schedule");
         return new ResponseEntity<>(headers, HttpStatus.SEE_OTHER);
     }
 }

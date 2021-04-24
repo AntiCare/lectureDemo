@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/Event.css"
+          type="text/css"  th:href="@{~/Event.css}"/>
+</head>
+<body>
+
+<div id="app">
+    <header id="header">
+        <h1>Events</h1>
+        <h3></h3>
+    </header>
+
+    <div class="navbar">
+        <a th:href="@{/hello/bookShops}">Game</a>
+        <a th:href="@{/hello/expansion}">Expansion</a>
+        <a th:href="@{/hello/schedule}">Schedule</a>
+        <a href="#" class="right">Language</a>
+    </div>
+
+    <div class="row">
+
+        <div class="side">
+            <h1>Record Event Here </h1>
+
+            <div class = "AddEventBox">
+                <h2>Add Event</h2>
+                <form action="/hello/addEvent" method="POST">
+
+                    <p>Event Name</p>
+                    <input type="text" name="eventName" placeholder="enter event name" required>
+
+                    <p>Event description</p>
+                    <input type="text" name="description" placeholder="enter event description">
+
+                    <p>Amount</p>
+                    <input type="text" name="amount" placeholder="income and expenditure" required>
+
+                    <p>Date</p>
+                    <input type="text" name="date" placeholder="enter date" required>
+
+                    <input type="submit"  name="" value="Add">
+                </form>
+            </div>
+        </div>
+    <div class="main">
+        <br>
+        <div class="event" th:each="myEvents: ${events}">
+            <h2 th:text="${myEvents.eventName}"></h2>
+            <p id="description" th:text="Description+': '+${myEvents.description}"></p>
+            <p id="amount" th:text="Amount+': '+${myEvents.amount}"></p>
+            <p id="date" th:text="Date+': '+${myEvents.date}"></p>
+        </div>
+    </div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>

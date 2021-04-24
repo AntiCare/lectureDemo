@@ -6,7 +6,7 @@ body
     background-size: cover;
     font-family: sans-serif;
 }
-.AddGameBox
+.AddEventBox
 {
     position: absolute;
     top: 50%;
@@ -36,20 +36,20 @@ h2
     color:#efed40;
     text-align: center;
 }
-.AddGameBox p
+.AddEventBox p
 {
     margin: 0;
     padding: 0;
     font-weight: bold;
     color:#fff;
 }
-.AddGameBox input
+.AddEventBox input
 {
     width:100%;
     margin-bottom:20px;
 }
-.AddGameBox input[type="text"],
-.AddGameBox input[type="password"]
+.AddEventBox input[type="text"],
+.AddEventBox input[type="password"]
 {
     border: none;
     border-bottom: 1px solid #ffffff;
@@ -63,7 +63,7 @@ h2
 {
     color:rgba(255,255,255,.5);
 }
-.AddGameBox input[type="submit"]
+.AddEventBox input[type="submit"]
 {
     border: none;
     outline: none;
@@ -74,12 +74,12 @@ h2
     cursor:pointer;
     border-radius: 20px;
 }
-.AddGameBox input[type="submit"]:hover
+.AddEventBox input[type="submit"]:hover
 {
     background: #efed40;
     color: #262626;
 }
-.AddGameBox a
+.AddEventBox a
 {
     color:#fff;
     font-size: 14px;
