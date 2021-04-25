@@ -18,8 +18,6 @@ public class BookShopController {
     }
 
 
-
-
     @RequestMapping("/bookShops")
     public String addUser1(String email,String password) {
         if(email!=null && password!=null) {

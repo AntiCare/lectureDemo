@@ -24,6 +24,26 @@ body,
     line-height: 50px;
 }
 
+#Bd
+{
+    border: none;
+    outline: none;
+    width: 100px;
+    height: 40px;
+    color:#ffffff;
+    font-size: 16px;
+    background: #ff267e;
+    cursor:pointer;
+    border-radius: 20px;
+    float:right;
+}
+#Bd:hover
+{
+    background: #efed40;
+    color: #262626;
+}
+
+
 .row {
     display: -ms-flexbox; /* IE10 */
     display: flex;
@@ -45,7 +65,7 @@ body,
     width: 400px;
     padding: 20px;
     border-radius: 20px;
-    height:200px;
+    height:250px;
     margin: 20px;
 
 }

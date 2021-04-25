@@ -22,9 +22,6 @@
         <a href="#" class="right">Language</a>
     </div>
 
-
-
-
     <div class="row">
 
         <div class="side">
@@ -50,24 +47,27 @@
             </div>
         </div>
 
-
-
         <div class="main">
 
             <div id="count" class="counter">
                 <h2>Total</h2>
                 <p>Number of event:<h id="total"></h></p>
-
             </div>
 
         <br>
-        <div class="event" id="events" th:name="hh"  th:each="myEvents: ${events}"><h2 th:text="${myEvents.eventName}"></h2><p id="description" th:text="Description+': '+${myEvents.description}"></p><p id="amount" th:text="Amount+': '+${myEvents.amount}"></p><p id="date" th:text="Date+': '+${myEvents.date}"></p></div>
+        <div class="event" id="events" th:name="hh"  th:each="myEvents: ${events}">
+            <h2 th:text="${myEvents.eventName}"></h2>
+            <p id="description" th:text="Description+': '+${myEvents.description}"></p>
+            <p id="amount" th:text="Amount+': '+${myEvents.amount}"></p>
+            <p id="date" th:text="Date+': '+${myEvents.date}"></p>
+        </div>
 
             <script>
                 function counter() {
                     var count = document.getElementsByName("hh");
                     document.getElementById("total").innerHTML= count.length.toString();
                 }
+
                 counter();
             </script>
 
