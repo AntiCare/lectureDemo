@@ -1,4 +1,6 @@
-package nl.saxion.webapps.lecturedemo1.moduls;
+package nl.saxion.webapps.lecturedemo1.dataProvider;
+
+import nl.saxion.webapps.lecturedemo1.moduls.Event;
 
 import java.util.ArrayList;
 
@@ -6,7 +8,7 @@ public class EventsDataProvider {
     private static ArrayList<Event> events;
     static  {
         events = new ArrayList<Event>();
-        events.add(new Event("aa","aaa",-3,"2000/1/1"));
+//        events.add(new Event("aa","aaa",-3.8,"2000/1/1"));
     }
 
     public static ArrayList<Event> getEvents() {

@@ -5,12 +5,14 @@ import java.io.Serializable;
 public class BookShop implements Serializable {
     private Integer id;
     private String shopName;
+    private int employeeNum;
     private String address;
     private String phoneNumber;
 
-    public BookShop(int id ,String shopName,String address,String phoneNumber) {
+    public BookShop(int id ,String shopName,int employeeNum,String address,String phoneNumber) {
         this.id=id;
         this.shopName=shopName;
+        this.employeeNum = employeeNum;
         this.address=address;
         this.phoneNumber=phoneNumber;
     }
@@ -47,11 +49,20 @@ public class BookShop implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
+    public int getEmployeeNum() {
+        return employeeNum;
+    }
+
+    public void setEmployeeNum(int employeeNum) {
+        this.employeeNum = employeeNum;
+    }
+
     @Override
     public String toString() {
         return "BookShop{" +
                 "id=" + id +
                 ", shopName='" + shopName + '\'' +
+                ", employeeNum=" + employeeNum +
                 ", address='" + address + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 '}';

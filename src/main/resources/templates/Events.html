@@ -10,9 +10,10 @@
 
 <div id="app">
     <header id="header">
-        <h1>Events</h1>
-        <h3></h3>
+        <h1>Notebook</h1>
+        <h3>Record income and expenses for the bookshop</h3>
     </header>
+
 
     <div class="navbar">
         <a th:href="@{/hello/bookShops}">Game</a>
@@ -21,14 +22,16 @@
         <a href="#" class="right">Language</a>
     </div>
 
+
+
+
     <div class="row">
 
         <div class="side">
             <h1>Record Event Here </h1>
-
             <div class = "AddEventBox">
                 <h2>Add Event</h2>
-                <form action="/hello/addEvent" method="POST">
+                <form id="form" name="eForm" action="/hello/addEvent"  method="POST" >
 
                     <p>Event Name</p>
                     <input type="text" name="eventName" placeholder="enter event name" required>
@@ -36,8 +39,8 @@
                     <p>Event description</p>
                     <input type="text" name="description" placeholder="enter event description">
 
-                    <p>Amount</p>
-                    <input type="text" name="amount" placeholder="income and expenditure" required>
+                    <p>Amount (+/-) (€)</p>
+                    <input type="number" step="0.01" name="amount" placeholder="income and expenditure" required>
 
                     <p>Date</p>
                     <input type="text" name="date" placeholder="enter date" required>
@@ -46,18 +49,31 @@
                 </form>
             </div>
         </div>
-    <div class="main">
-        <br>
-        <div class="event" th:each="myEvents: ${events}">
-            <h2 th:text="${myEvents.eventName}"></h2>
-            <p id="description" th:text="Description+': '+${myEvents.description}"></p>
-            <p id="amount" th:text="Amount+': '+${myEvents.amount}"></p>
-            <p id="date" th:text="Date+': '+${myEvents.date}"></p>
-        </div>
-    </div>
-    </div>
-</div>
 
+
+
+        <div class="main">
+
+            <div id="count" class="counter">
+                <h2>Total</h2>
+                <p>Number of event:<h id="total"></h></p>
+
+            </div>
+
+        <br>
+        <div class="event" id="events" th:name="hh"  th:each="myEvents: ${events}"><h2 th:text="${myEvents.eventName}"></h2><p id="description" th:text="Description+': '+${myEvents.description}"></p><p id="amount" th:text="Amount+': '+${myEvents.amount}"></p><p id="date" th:text="Date+': '+${myEvents.date}"></p></div>
+
+            <script>
+                function counter() {
+                    var count = document.getElementsByName("hh");
+                    document.getElementById("total").innerHTML= count.length.toString();
+                }
+                counter();
+            </script>
+
+        </div>
+
+     </div>
 </div>
 </body>
 </html>

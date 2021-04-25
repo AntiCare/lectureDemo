@@ -1,7 +1,7 @@
-package nl.saxion.webapps.lecturedemo1;
+package nl.saxion.webapps.lecturedemo1.controller;
 
 import nl.saxion.webapps.lecturedemo1.moduls.Schedule;
-import nl.saxion.webapps.lecturedemo1.moduls.ScheduleDataProvider;
+import nl.saxion.webapps.lecturedemo1.dataProvider.ScheduleDataProvider;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

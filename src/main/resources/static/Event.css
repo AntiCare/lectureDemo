@@ -50,6 +50,19 @@ body,
 
 }
 
+.counter{
+
+    background-color: rgba(0,0,0,.5);
+    color: #efed40;
+    width: 400px;
+    padding: 20px;
+    border-radius: 20px;
+    height:180px;
+    margin: 20px;
+    float:right;
+    font-size: 24px;
+}
+
 .main {
     -ms-flex: 70%; /* IE10 */
     flex: 70%;
@@ -156,5 +169,5 @@ h2
 
 #description ,#amount ,#date{
     font-size: 18px;
-    line-height: 32px;
+    line-height: 30px;
 }

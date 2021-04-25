@@ -5,10 +5,10 @@ public class Event {
     private static int idCounter = 0;
     private String eventName;
     private String description;
-    private int amount;
+    private double amount;
     private String date;
 
-    public Event(String eventName,String description,int amount,String date) {
+    public Event(String eventName,String description,double amount,String date) {
         this.id = idCounter++;
         this.eventName=eventName;
         this.description=description;
@@ -40,11 +40,11 @@ public class Event {
         this.description = description;
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 

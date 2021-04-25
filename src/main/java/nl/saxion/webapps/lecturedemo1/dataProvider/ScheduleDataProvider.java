@@ -1,4 +1,6 @@
-package nl.saxion.webapps.lecturedemo1.moduls;
+package nl.saxion.webapps.lecturedemo1.dataProvider;
+
+import nl.saxion.webapps.lecturedemo1.moduls.Schedule;
 
 import java.util.ArrayList;
 
