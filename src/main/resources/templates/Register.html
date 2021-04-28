@@ -11,29 +11,10 @@
 <div class = "registerBox">
     <h2>Register</h2>
 
-
-    <header>
-        <script>
-            function checkFormat(){
-                var emailInput = document.forms["mForm"]["email"].value;
-                var a = emailInput.indexOf("@");
-                var b = emailInput.lastIndexOf(".");
-                if (a<1 || b<a+2 || b+2 >= emailInput.length){
-                    alert("Email format error! Please enter the correct email.");
-                    return false;
-                }
-                var passwordInput = document.forms["mForm"]["password"].value;
-                var confirmPassword = document.forms["mForm"]["cPassword"].value;
-                if (passwordInput !==confirmPassword){
-                    alert("password and confirm password are inconsistent!");
-                    return false;
-                }
-            }
+        <script src="/Js/LoginAndRegister.js">
         </script>
-    </header>
 
-
-    <form name="mForm" action="/hello/login" onsubmit="return checkFormat()">
+    <form name="mForm" action="/register/add" onsubmit="return checkRegisterFormat()">
         <p>Email</p>
         <input type="text" name="email" placeholder="Enter Email" required >
         <p>Password</p>

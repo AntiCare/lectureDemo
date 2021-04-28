@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../static/BookShop.css"
-          type="text/css"  th:href="@{~/BookShop.css}"/>
+          type="text/css" th:href="@{~/BookShop.css}"/>
 </head>
 <body>
 <div class="header">
@@ -12,31 +12,34 @@
     <h2 id="user">" No end to learning "</h2>
 </div>
 
-
 <div class="navbar">
-    <a th:href="@{/hello/expansion}">Expansion</a>
-    <a th:href="@{/hello/events}">Notebook</a>
-    <a th:href="@{/hello/schedule}">Schedule</a>
-<a th:href="@{/hello/login}"  class="right">Log out</a>
+    <a href="/expansion">Expansion</a>
+    <a href="/events">Notebook</a>
+    <a href="/schedule">Schedule</a>
+<a href="/login"  class="right">Log out</a>
 </div>
 
 
-
-
-
-
-<header>
-<script  src="/Js/main.js">
-
+<script  src="/Js/BookShop.js">
 </script>
-</header>
+
+<main id="main">
 
 
+    <li class="pricingTable-firstTable_table">
+        <div class="pricingTable-firstTable_table__getstart">
+            <a class="a-details" href="/add">Add One</a>
+        </div>
+    </li>
 
+</main>
 
 <div class="footer">
-    <h5>developer: Yang Cheng</h5>
-    <h5>contact Number: (+31)0639122391</h5>
+    <h5>Developer: Yang Cheng</h5>
+    <h5>Contact Number: (+31)0639122391</h5>
 </div>
 </body>
 </html>
+
+
+

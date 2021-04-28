@@ -1,7 +1,7 @@
 package nl.saxion.webapps.lecturedemo1.controller;
 
 import nl.saxion.webapps.lecturedemo1.moduls.Event;
-import nl.saxion.webapps.lecturedemo1.dataProvider.EventsDataProvider;
+import nl.saxion.webapps.lecturedemo1.service.EventsDataProvider;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,12 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
-import java.security.Principal;
-import java.util.List;
-
 @Controller
-@RequestMapping("/hello")
+
 public class EventsController {
 
     @GetMapping(path = "/events")
@@ -30,7 +26,7 @@ public class EventsController {
     public ResponseEntity<Event> addEvent(Event events) {
         EventsDataProvider.addEvent(events);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Location", "/hello/events");
+        headers.add("Location", "/events");
         return new ResponseEntity<>(headers, HttpStatus.SEE_OTHER);
     }
 

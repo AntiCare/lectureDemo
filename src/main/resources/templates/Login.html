@@ -12,32 +12,16 @@
          <img src="/image/img1.png" class="user" >
          <h2>Log In Here</h2>
 
-         <header>
-         <script>
-         function checkFormat(){
-             var emailInput = document.forms["mForm"]["email"].value;
-             var a = emailInput.indexOf("@");
-             var b = emailInput.lastIndexOf(".");
-             if (a<1 || b<a+2 || b+2 >= emailInput.length){
-                 alert("Email format error! Please enter the correct email.");
-                 return false;
-             }
-             var passwordInput = document.forms["mForm"]["password"].value;
-             if (passwordInput === "" || passwordInput==null){
-                 alert("Please enter password!");
-                 return false;
-             }
-         }
+         <script src="/Js/LoginAndRegister.js">
          </script>
-         </header>
 
-         <form name="mForm" action="/hello/bookShops" onsubmit="return checkFormat()" >
+         <form name="mForm" action="/login/confirm" onsubmit="return checkLoginFormat()" >
              <p>Email</p>
-             <input name="email"  type="text"   placeholder="Enter Email" required>
+             <input name="email"  type="text" id="UserEmail"  placeholder="Enter Email" required>
              <p>Password</p>
-             <input name="password" type="password"  placeholder="Password" required>
+             <input name="password" type="password"  id="UserPassword" placeholder="Password" required>
              <input type="submit"   value="Sign In">
-             <a href="/hello/register">Register account</a>
+             <a href="/register">Register account</a>
          </form>
      </div>
   </body>

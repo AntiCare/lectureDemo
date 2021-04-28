@@ -16,9 +16,9 @@
 
 
     <div class="navbar">
-        <a th:href="@{/hello/bookShops}">Game</a>
-        <a th:href="@{/hello/expansion}">Expansion</a>
-        <a th:href="@{/hello/schedule}">Schedule</a>
+        <a th:href="@{/bookShops}">Game</a>
+        <a th:href="@{/expansion}">Expansion</a>
+        <a th:href="@{/schedule}">Schedule</a>
         <a href="#" class="right">Language</a>
     </div>
 
@@ -28,7 +28,7 @@
             <h1>Record Event Here </h1>
             <div class = "AddEventBox">
                 <h2>Add Event</h2>
-                <form id="form" name="eForm" action="/hello/addEvent"  method="POST" >
+                <form id="form" name="eForm" action="/addEvent"  method="POST" >
 
                     <p>Event Name</p>
                     <input type="text" name="eventName" placeholder="enter event name" required>

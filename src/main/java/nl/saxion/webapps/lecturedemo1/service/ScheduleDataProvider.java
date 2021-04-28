@@ -1,4 +1,4 @@
-package nl.saxion.webapps.lecturedemo1.dataProvider;
+package nl.saxion.webapps.lecturedemo1.service;
 
 import nl.saxion.webapps.lecturedemo1.moduls.Schedule;
 
