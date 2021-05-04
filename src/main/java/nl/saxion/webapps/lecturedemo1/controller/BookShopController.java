@@ -11,12 +11,8 @@ import javax.annotation.Resource;
 @Controller
 public class BookShopController {
 
-
-
-
-
     @RequestMapping("/bookShops")
-    public String addUser1() {
+    public String bookShop() {
         return "BookShop";
     }
 

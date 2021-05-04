@@ -33,7 +33,29 @@ function checkRegisterFormat(){
     }
 }
 
-//register
+function sendData() {
+    //use fetch send the data to backend.
+    const myForm =document.getElementById('myForm');
+    myForm.addEventListener('submit',function (e) {
+        e.preventDefault();
+        const fromData =new FormData(this);
+
+        fetch('/register/add',{
+            method:'post',
+            body:fromData
+        }).then(function (response) {
+            if(response.ok){
+                //返回上一页。
+                return window.history.back();
+            }
+        }).then(function (text) {
+            console.log(text);
+        }).catch(function (error) {
+            console.error(error);
+        })
+    });
+}
+
 
 
 

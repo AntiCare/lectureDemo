@@ -23,13 +23,11 @@ public class UserController {
     @RequestMapping("/login/confirm")
     public Object getUser(User user) {
         if (userService.confirm(user)) {
-            return "BookShop";
+            return "redirect:/bookShops";
         }else {
-            return "Login";
+            return "redirect:/login";
         }
     }
-
-
 
     @GetMapping(path = "/login")
     public String login(){

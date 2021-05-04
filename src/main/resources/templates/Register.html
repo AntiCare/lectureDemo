@@ -14,7 +14,7 @@
         <script src="/Js/LoginAndRegister.js">
         </script>
 
-    <form name="mForm" action="/register/add" onsubmit="return checkRegisterFormat()">
+    <form method="post" name="mForm" action="/register/add" id="myForm" onsubmit="return checkRegisterFormat()">
         <p>Email</p>
         <input type="text" name="email" placeholder="Enter Email" required >
         <p>Password</p>
