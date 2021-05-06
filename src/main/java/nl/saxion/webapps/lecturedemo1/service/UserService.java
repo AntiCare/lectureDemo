@@ -13,8 +13,14 @@ public class UserService {
     @Resource
     private UserRepository userRepository;
 
-    public void add(User user) {
+    public boolean add(User user) {
+        for (User e : userRepository.findAll()) {
+            if (e.getEmail().equals(user.getEmail())) {
+                return false;
+            }
+        }
         userRepository.save(user);
+        return true;
     }
 
     public Boolean confirm(User user) {

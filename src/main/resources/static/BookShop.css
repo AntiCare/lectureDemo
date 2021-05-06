@@ -1,7 +1,5 @@
 * {
     box-sizing: border-box;
-
-
 }
 
 /* body 样式 */
@@ -65,9 +63,6 @@ body {
 
 
 }
-
-
-
 /* 底部 */
 .footer {
     padding: 20px;
@@ -104,6 +99,7 @@ body {
 
 
 .pricingTable-firstTable_table {
+    color: #efed40;
     vertical-align: middle;
     width: 30%;
     background-color: #0E0E0E;

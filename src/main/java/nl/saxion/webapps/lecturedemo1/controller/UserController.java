@@ -16,8 +16,12 @@ public class UserController {
 
     @RequestMapping("/register/add")
     public Object addUser(User user) {
-        userService.add(user);
-        return "Login";
+        if (userService.add(user)){
+            return "Login";
+        }else {
+            return "Register";
+        }
+
     }
 
     @RequestMapping("/login/confirm")

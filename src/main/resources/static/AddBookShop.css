@@ -2,11 +2,11 @@ body
 {
     margin: 0;
     padding: 0;
-    background: url("https://images7.alphacoders.com/401/thumb-1920-401390.png");
+    background-image: url('/image/addShop1.png');
     background-size: cover;
     font-family: sans-serif;
 }
-.AddEventBox
+.AddBookShopBox
 {
     position: absolute;
     top: 50%;
@@ -36,20 +36,20 @@ h2
     color:#efed40;
     text-align: center;
 }
-.AddEventBox p
+.AddBookShopBox p
 {
     margin: 0;
     padding: 0;
     font-weight: bold;
     color:#fff;
 }
-.AddEventBox input
+.AddBookShopBox input
 {
     width:100%;
     margin-bottom:20px;
 }
-.AddEventBox input[type="text"],
-.AddEventBox input[type="password"]
+.AddBookShopBox input[type="text"],
+.AddBookShopBox input[type="password"]
 {
     border: none;
     border-bottom: 1px solid #ffffff;
@@ -63,7 +63,7 @@ h2
 {
     color:rgba(255,255,255,.5);
 }
-.AddEventBox input[type="submit"]
+.AddBookShopBox input[type="submit"]
 {
     border: none;
     outline: none;
@@ -74,12 +74,12 @@ h2
     cursor:pointer;
     border-radius: 20px;
 }
-.AddEventBox input[type="submit"]:hover
+.AddBookShopBox input[type="submit"]:hover
 {
     background: #efed40;
     color: #262626;
 }
-.AddEventBox a
+.AddBookShopBox a
 {
     color:#fff;
     font-size: 14px;
