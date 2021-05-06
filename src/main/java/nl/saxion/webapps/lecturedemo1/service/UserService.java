@@ -25,7 +25,7 @@ public class UserService {
 
     public Boolean confirm(User user) {
         for (User e : userRepository.findAll()) {
-            if (e.getEmail().equals(user.getEmail())) {
+            if (e.getEmail().equals(user.getEmail()) && e.getPassword().equals(user.getPassword())) {
                 return true;
             }
         }
