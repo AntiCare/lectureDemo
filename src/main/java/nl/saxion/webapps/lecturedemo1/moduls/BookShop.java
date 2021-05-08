@@ -11,6 +11,7 @@ import javax.persistence.*;
 public class BookShop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "shop_id")
     private Integer id;
 
     @Column(name = "shop_name")

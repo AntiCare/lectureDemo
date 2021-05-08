@@ -42,6 +42,15 @@ public class BookShopController {
     }
 
 
+    @RequestMapping(path = "/bookShops/delete/{id}")
+    @ResponseBody
+    public Object deleteBookShop(@PathVariable("id") String id){
+         int e = Integer.parseInt(id);
+         System.out.println(e);
+         bookShops.get(e).setShopName(null);
+        bookShopService.delete(e+1);
+        return e;
+    }
 
 
     @GetMapping(path = "/addBookShop")
@@ -52,10 +61,6 @@ public class BookShopController {
 
 
 
-    @GetMapping(path = "/expansion")
-    public String Expansion(){
-        return "Expansion";
-    }
 
 
 

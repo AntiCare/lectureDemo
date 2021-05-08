@@ -163,7 +163,6 @@ body {
         box-shadow: none;
     }
 
-
 }
 
 .ttt {
@@ -187,6 +186,23 @@ body {
         transform: scale(0.95) translateY(0);
         box-shadow: none;
     }
+}
+
+.deleteButton
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    color:#ffffff;
+    font-size: 16px;
+    background: #ff267e;
+    cursor:pointer;
+    border-radius: 20px;
+}
+.deleteButton:hover
+{
+    background: #efed40;
+    color: #262626;
 }
 
 

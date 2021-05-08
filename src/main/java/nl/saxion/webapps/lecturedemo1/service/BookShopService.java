@@ -15,5 +15,10 @@ public class BookShopService {
         bookShopRepository.save(bookShop);
     }
 
+    public void delete(Integer id) {
+        bookShopRepository.deleteById(id);
+
+    }
+
 
 }
