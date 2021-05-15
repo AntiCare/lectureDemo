@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class BookShopController {
 
      public static ArrayList<BookShop> bookShops = new ArrayList<>();
-
+     public static int shop_id;
 
     @Resource
     private BookShopService bookShopService;
@@ -57,6 +57,22 @@ public class BookShopController {
     public Object AddBookShop(){
         return "AddBookShop";
     }
+
+    @GetMapping(path = "{id}/books")
+    public Object AddBookShop(@PathVariable("id") String id) {
+        shop_id = Integer.parseInt(id) + 1;
+        System.out.println(shop_id);
+        return "Book";
+    }
+
+    @RequestMapping(path = "/books/getShopName")
+    @ResponseBody
+    public Object getShopName(){
+        return bookShops.get(shop_id-1).getShopName();
+    }
+
+
+
 
 
 

@@ -1,25 +1,41 @@
 package nl.saxion.webapps.lecturedemo1.moduls;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
-public class Book implements Serializable {
-    private Integer id;
-    private String name;
-    private Integer stock;
-    private Integer price;
-    private String category;
-    private String description;
-    private String username;
+@Entity
+@Table(name = "book")
+@JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer"})
+public class Book {
 
-    public Book(int id, String name, int stock, int price, String category, String description, String username) {
-        this.id = id;
-        this.name = name;
-        this.stock = stock;
-        this.price = price;
-        this.category = category;
-        this.description = description;
-        this.username = username;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "book_id")
+    private Integer id;
+    @Column(name = "bookName")
+    private String bookName;
+    @Column(name = "stock")
+    private Integer stock;
+    @Column(name = "price")
+    private Integer price;
+    @Column(name = "category")
+    private String category;
+    @Column(name = "description")
+    private String description;
+    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH},optional=false)
+    @JoinColumn(name="shop_id")
+    private BookShop bookShop;
+
+
+    public BookShop getBookShop() {
+        return bookShop;
+    }
+
+    public void setBookShop(BookShop bookShop) {
+        this.bookShop = bookShop;
     }
 
     public Integer getId() {
@@ -30,12 +46,12 @@ public class Book implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getBookName() {
+        return bookName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
     }
 
     public Integer getStock() {
@@ -70,13 +86,7 @@ public class Book implements Serializable {
         this.description = description;
     }
 
-    public String getUsername() {
-        return username;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
 
 }
