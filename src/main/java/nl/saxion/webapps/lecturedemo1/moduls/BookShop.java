@@ -26,6 +26,17 @@ public class BookShop {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @Column(name = "user_email")
+    private String user_email;
+
+    public String getUser_email() {
+        return user_email;
+    }
+
+    public void setUser_email(String user_email) {
+        this.user_email = user_email;
+    }
+
     public Integer getId() {
         return id;
     }

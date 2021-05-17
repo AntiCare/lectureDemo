@@ -25,18 +25,6 @@ public class Book {
     private String category;
     @Column(name = "description")
     private String description;
-    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH},optional=false)
-    @JoinColumn(name="shop_id")
-    private BookShop bookShop;
-
-
-    public BookShop getBookShop() {
-        return bookShop;
-    }
-
-    public void setBookShop(BookShop bookShop) {
-        this.bookShop = bookShop;
-    }
 
     public Integer getId() {
         return id;

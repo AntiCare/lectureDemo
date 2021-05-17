@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class BookShopController {
 
      public static ArrayList<BookShop> bookShops = new ArrayList<>();
+     public static ArrayList<BookShop> showUserShop = new ArrayList<>();
      public static int shop_id;
 
     @Resource
@@ -22,7 +23,15 @@ public class BookShopController {
     @ResponseBody
     public Object bookShop() {
 //        System.out.println(bookShops);
-        return bookShops;
+        for (BookShop e:bookShops) {
+         if(!showUserShop.contains(e)){
+             if(e.getUser_email().equals(UserController.userLogin.getEmail())){
+                 showUserShop.add(e);
+             }
+         }
+        }
+        return showUserShop;
+
     }
 
     @RequestMapping(path = "/bookShops")
@@ -34,10 +43,11 @@ public class BookShopController {
     @RequestMapping(path = "/addBookShop/add")
     @ResponseBody
     public Object AddBookShopAdd(BookShop bookShop){
-
+        System.out.println(UserController.userLogin);
+        bookShop.setUser_email(UserController.userLogin.getEmail());
         bookShopService.add(bookShop);
         System.out.println(bookShop);
-          bookShops.add(bookShop);
+        bookShops.add(bookShop);
         return bookShop;
     }
 
@@ -47,8 +57,8 @@ public class BookShopController {
     public Object deleteBookShop(@PathVariable("id") String id){
          int e = Integer.parseInt(id);
          System.out.println(e);
-         bookShops.get(e).setShopName(null);
-        bookShopService.delete(e+1);
+         bookShops.get(e-1).setShopName(null);
+        bookShopService.delete(e);
         return e;
     }
 
@@ -60,7 +70,7 @@ public class BookShopController {
 
     @GetMapping(path = "{id}/books")
     public Object AddBookShop(@PathVariable("id") String id) {
-        shop_id = Integer.parseInt(id) + 1;
+        shop_id = Integer.parseInt(id);
         System.out.println(shop_id);
         return "Book";
     }

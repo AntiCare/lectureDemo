@@ -24,9 +24,9 @@ fetch('/bookShops/get',{
                         //set class name/id.
                         table.className = "pricingTable-firstTable_table";
                         deleteButton.className="buttons";
-                        deleteButton.id=i.toString();
+                        deleteButton.id=data[i].id.toString();
                         bookButton.className="buttons";
-                        bookButton.id = "book"+i.toString()
+                        bookButton.id ="book"+data[i].id.toString()
 
                         //Assignment.
                         shopName.innerHTML=data[i].shopName;

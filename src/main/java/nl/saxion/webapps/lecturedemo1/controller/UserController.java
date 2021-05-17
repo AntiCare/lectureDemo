@@ -13,6 +13,8 @@ public class UserController {
 
     @Resource
     private UserService userService;
+    public static User userLogin;
+
 
     @RequestMapping("/register/add")
     public Object addUser(User user) {
@@ -27,6 +29,8 @@ public class UserController {
     @RequestMapping("/login/confirm")
     public Object getUser(User user) {
         if (userService.confirm(user)) {
+            userLogin =user;
+            BookShopController.showUserShop.clear();
             return "redirect:/bookShops";
         }else {
             return "redirect:/login";
