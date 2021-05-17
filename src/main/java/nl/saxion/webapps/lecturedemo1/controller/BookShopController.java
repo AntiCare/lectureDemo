@@ -15,7 +15,7 @@ public class BookShopController {
      public static ArrayList<BookShop> bookShops = new ArrayList<>();
      public static ArrayList<BookShop> showUserShop = new ArrayList<>();
      public static int shop_id;
-
+     public static int value;
     @Resource
     private BookShopService bookShopService;
 
@@ -57,7 +57,10 @@ public class BookShopController {
     public Object deleteBookShop(@PathVariable("id") String id){
          int e = Integer.parseInt(id);
          System.out.println(e);
-         bookShops.get(e-1).setShopName(null);
+         //When the APP is stopped, the id in the database will not be cleared,
+        // but the ArrayList in the APP will be cleared, so it is necessary to subtract a certain value.
+         value=bookShops.get(0).getId();
+         bookShops.get(e-value).setShopName(null);
         bookShopService.delete(e);
         return e;
     }
@@ -78,7 +81,7 @@ public class BookShopController {
     @RequestMapping(path = "/books/getShopName")
     @ResponseBody
     public Object getShopName(){
-        return bookShops.get(shop_id-1).getShopName();
+        return bookShops.get(shop_id-value).getShopName();
     }
 
 
