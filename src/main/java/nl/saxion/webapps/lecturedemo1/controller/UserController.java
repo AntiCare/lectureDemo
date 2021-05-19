@@ -5,6 +5,7 @@ import nl.saxion.webapps.lecturedemo1.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 
@@ -17,29 +18,30 @@ public class UserController {
 
 
     @RequestMapping("/register/add")
-    public Object addUser(User user) {
+    public Object addUser( @RequestParam(value="email") String email , @RequestParam(value="password") String password) {
+       User user = new User(email,password);
         if (userService.add(user)){
-            return "Login";
+            return "index";
         }else {
             return "Register";
         }
-
     }
 
-    @RequestMapping("/login/confirm")
-    public Object getUser(User user) {
+    @RequestMapping("/index/confirm")
+    public Object getUser(@RequestParam(value="email") String email , @RequestParam(value="password") String password) {
+        User user = new User(email,password);
         if (userService.confirm(user)) {
             userLogin =user;
             BookShopController.showUserShop.clear();
             return "redirect:/bookShops";
         }else {
-            return "redirect:/login";
+            return "redirect:/index";
         }
     }
 
-    @GetMapping(path = "/login")
+    @GetMapping(path = "/index")
     public String login(){
-        return "Login";
+        return "index";
     }
 
     @GetMapping(path = "/register")

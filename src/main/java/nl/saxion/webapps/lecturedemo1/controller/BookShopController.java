@@ -16,6 +16,7 @@ public class BookShopController {
      public static ArrayList<BookShop> showUserShop = new ArrayList<>();
      public static int shop_id;
      public static int value;
+     public static int update_id;
     @Resource
     private BookShopService bookShopService;
 
@@ -43,27 +44,72 @@ public class BookShopController {
     @RequestMapping(path = "/addBookShop/add")
     @ResponseBody
     public Object AddBookShopAdd(BookShop bookShop){
-        System.out.println(UserController.userLogin);
-        bookShop.setUser_email(UserController.userLogin.getEmail());
-        bookShopService.add(bookShop);
-        System.out.println(bookShop);
-        bookShops.add(bookShop);
-        return bookShop;
+
+        try{
+            System.out.println(UserController.userLogin);
+            bookShop.setUser_email(UserController.userLogin.getEmail());
+            bookShopService.add(bookShop);
+            System.out.println(bookShop);
+            bookShops.add(bookShop);
+            value=bookShops.get(0).getId();
+            //Status code
+            return "200";
+        }catch (Exception e){
+            return "500";
+        }
+    }
+
+
+    @RequestMapping(path = "updateBookShop/update")
+    @ResponseBody
+    public Object updateBookShopUpdate(BookShop bookShop){
+
+        try{
+            bookShop.setUser_email(UserController.userLogin.getEmail());
+            bookShopService.update(update_id,bookShop);
+            bookShops.get(update_id-value).setShopName(bookShop.getShopName());
+            bookShops.get(update_id-value).setEmployeeNum(bookShop.getEmployeeNum());
+            bookShops.get(update_id-value).setAddress(bookShop.getAddress());
+            bookShops.get(update_id-value).setPhoneNumber(bookShop.getPhoneNumber());
+            return "200";
+        }catch (Exception e){
+            return "406";
+        }
     }
 
 
     @RequestMapping(path = "/bookShops/delete/{id}")
     @ResponseBody
     public Object deleteBookShop(@PathVariable("id") String id){
-         int e = Integer.parseInt(id);
-         System.out.println(e);
-         //When the APP is stopped, the id in the database will not be cleared,
-        // but the ArrayList in the APP will be cleared, so it is necessary to subtract a certain value.
-         value=bookShops.get(0).getId();
-         bookShops.get(e-value).setShopName(null);
-        bookShopService.delete(e);
-        return e;
+
+        try {
+            int e = Integer.parseInt(id);
+            System.out.println(e);
+            //When the APP is stopped, the id in the database will not be cleared,
+            // but the ArrayList in the APP will be cleared, so it is necessary to subtract a certain value.
+            bookShops.get(e-value).setShopName(null);
+            bookShopService.delete(e);
+            //Status code
+            return "200";
+        }catch (Exception e){
+            return "406";
+        }
     }
+
+    @GetMapping(path = "/bookShops/update/{id}")
+    public Object updateBookShop(@PathVariable("id")String id) {
+        update_id=Integer.parseInt(id);
+        return "UpdateBookShop";
+
+
+    }
+
+//    @RequestMapping(path = "/bookShops/update/{id}")
+//    @ResponseBody
+//    public Object updateBookShop(@PathVariable("id") String id) {
+//        int e = Integer.parseInt(id);
+//    }
+
 
 
     @GetMapping(path = "/addBookShop")
@@ -71,18 +117,7 @@ public class BookShopController {
         return "AddBookShop";
     }
 
-    @GetMapping(path = "{id}/books")
-    public Object AddBookShop(@PathVariable("id") String id) {
-        shop_id = Integer.parseInt(id);
-        System.out.println(shop_id);
-        return "Book";
-    }
 
-    @RequestMapping(path = "/books/getShopName")
-    @ResponseBody
-    public Object getShopName(){
-        return bookShops.get(shop_id-value).getShopName();
-    }
 
 
 

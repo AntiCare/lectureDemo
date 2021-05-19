@@ -15,9 +15,13 @@ public class BookShopService {
         bookShopRepository.save(bookShop);
     }
 
+    public void update(int id ,BookShop bookShop){
+        bookShop.setId(id);
+        bookShopRepository.save(bookShop);
+    }
+
     public void delete(Integer id) {
         bookShopRepository.deleteById(id);
-
     }
 
 

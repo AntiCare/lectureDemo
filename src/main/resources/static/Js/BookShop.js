@@ -19,14 +19,17 @@ fetch('/bookShops/get',{
                         var address = document.createElement("p");
                         var phoneNumber = document.createElement("p");
                         var deleteButton = document.createElement("button");
-                        var bookButton = document.createElement("button")
+                        var updateButton = document.createElement("button");
+                        var bookButton = document.createElement("button");
 
                         //set class name/id.
                         table.className = "pricingTable-firstTable_table";
                         deleteButton.className="buttons";
                         deleteButton.id=data[i].id.toString();
+                        updateButton.className="buttons";
+                        updateButton.id="update"+data[i].id.toString();
                         bookButton.className="buttons";
-                        bookButton.id ="book"+data[i].id.toString()
+                        bookButton.id ="book"+data[i].id.toString();
 
                         //Assignment.
                         shopName.innerHTML=data[i].shopName;
@@ -34,7 +37,8 @@ fetch('/bookShops/get',{
                         address.innerHTML=data[i].address;
                         phoneNumber.innerHTML=data[i].phoneNumber;
                         deleteButton.innerHTML="Delete";
-                        bookButton.innerHTML="book detail"
+                        updateButton.innerHTML="Update";
+                        bookButton.innerHTML="book detail";
 
                         /**
                             Delete book shop.
@@ -48,16 +52,31 @@ fetch('/bookShops/get',{
                             })
                                 .then(res => res.json())
                                 .then(data => {
+                                    if (data.toString()==="406"){
+                                        alert("delete book shop failed!")
+                                    }
                                 })
                                 .then(()=>location.reload())
                                 .catch(err => console.log(err));
                         })
 
                         /**
+                         * Update book shop.
+                         */
+                        updateButton.addEventListener('click',function (event) {
+                            var id = this.id.replace("update","");
+                           window.location.href='/bookShops/update/'+id;
+
+                        });
+
+
+
+
+                        /**
                          * jump to book page
                          */
                         bookButton.addEventListener('click',function (m){
-                            var id = this.id.replace("book","")
+                            var id = this.id.replace("book","");
                             window.location.href= id+'/books';
                         })
 
@@ -68,6 +87,7 @@ fetch('/bookShops/get',{
                         table.appendChild(address);
                         table.appendChild(phoneNumber);
                         table.appendChild(deleteButton);
+                        table.appendChild(updateButton);
                         table.appendChild(bookButton);
                     }
 
