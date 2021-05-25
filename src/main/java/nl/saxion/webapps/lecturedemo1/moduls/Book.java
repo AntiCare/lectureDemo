@@ -15,16 +15,32 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id")
     private Integer id;
-    @Column(name = "bookName")
+
+    @Column(name = "book_name")
     private String bookName;
+
     @Column(name = "stock")
     private Integer stock;
+
     @Column(name = "price")
-    private Integer price;
+    private Double price;
+
     @Column(name = "category")
     private String category;
+
     @Column(name = "description")
     private String description;
+
+    @Column(name = "shop_name")
+    private String shop_name;
+
+    public String getShop_name() {
+        return shop_name;
+    }
+
+    public void setShop_name(String shop_name) {
+        this.shop_name = shop_name;
+    }
 
     public Integer getId() {
         return id;
@@ -50,11 +66,11 @@ public class Book {
         this.stock = stock;
     }
 
-    public Integer getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

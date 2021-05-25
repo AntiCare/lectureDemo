@@ -32,7 +32,6 @@ public class BookShopController {
          }
         }
         return showUserShop;
-
     }
 
     @RequestMapping(path = "/bookShops")
@@ -103,12 +102,6 @@ public class BookShopController {
 
 
     }
-
-//    @RequestMapping(path = "/bookShops/update/{id}")
-//    @ResponseBody
-//    public Object updateBookShop(@PathVariable("id") String id) {
-//        int e = Integer.parseInt(id);
-//    }
 
 
 

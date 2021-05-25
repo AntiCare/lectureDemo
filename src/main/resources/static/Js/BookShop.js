@@ -1,6 +1,5 @@
-
-/*
-    Get book shop.
+/**
+ * Get book shop.
  */
 fetch('/bookShops/get',{
         method:'get'

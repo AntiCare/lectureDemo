@@ -8,22 +8,24 @@
           type="text/css"/>
 </head>
 <body>
-<div class = "AddBookShopBox">
+<div class = "AddBookBox">
     <img src="/image/img1.png" class="user" >
     <h2>Add BookShop</h2>
 
-    <form id="addBookShop">
-        <p>Shop Name</p>
-        <input type="text" name="shopName" placeholder="enter shop name" required>
-        <p>Employee Number</p>
-        <input type="number" name="employeeNum" step="1" min="0" placeholder="enter employee number" required>
-        <p>Shop Address</p>
-        <input type="text" name="address" placeholder="shop address" required>
-        <p>Phone Number</p>
-        <input type="text" name="phoneNumber" placeholder="phone number" required>
+    <form id="addBook">
+        <p>Book Name</p>
+        <input type="text" name="bookName" placeholder="enter book name" required>
+        <p>Stock</p>
+        <input type="number" name="stock" step="1" min="0" placeholder="enter stock" required>
+        <p>Price</p>
+        <input type="number" name="price" step="0.01" min="0" placeholder="book price" required>
+        <p>Category</p>
+        <input type="text" name="category" placeholder="enter category" required>
+        <p>Description</p>
+        <input type="text" name="description" placeholder="enter description" required>
         <input type="submit" value="Save & Back">
     </form>
-    <script src="/Js/BookShopAdd.js">
+    <script src="/Js/BookAdd.js">
     </script>
 </div>
 </body>

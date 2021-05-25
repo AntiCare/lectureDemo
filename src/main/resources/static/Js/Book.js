@@ -1,5 +1,7 @@
+/**
+ * change title to bookshop name.
+ */
 
-//change title to bookshop name.
 fetch('/books/getShopName',{
     method:'get',
 }).then(res=>res.text())
@@ -12,4 +14,10 @@ fetch('/books/getShopName',{
     .catch(function (error) {
         console.error(error);
     })
+
+
+/**
+ * get books
+ */
+
 
