@@ -90,7 +90,16 @@ public class Book {
         this.description = description;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", bookName='" + bookName + '\'' +
+                ", stock=" + stock +
+                ", price=" + price +
+                ", category='" + category + '\'' +
+                ", description='" + description + '\'' +
+                ", shop_name='" + shop_name + '\'' +
+                '}';
+    }
 }

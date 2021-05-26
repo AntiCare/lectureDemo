@@ -16,4 +16,8 @@ public class BookService {
     public void add(Book book) {
         bookRepository.save(book);
     }
+
+    public void delete(Integer id) {
+        bookRepository.deleteById(id);
+    }
 }

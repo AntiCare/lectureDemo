@@ -19,8 +19,9 @@ import java.util.ArrayList;
 public class BookController {
 
     public static ArrayList<Book> books = new ArrayList<>();
+    public static ArrayList<Book> showBooks = new ArrayList<>();
     public static String shopName;
-    public static int value;
+    public static int bookValue;
     @Resource
     private BookService bookService;
 
@@ -53,7 +54,7 @@ public class BookController {
             bookService.add(book);
             System.out.println(book.toString());
             books.add(book);
-            value=books.get(0).getId();
+            bookValue=books.get(0).getId();
             //Status code
             return BookShopController.shop_id;
         }catch (Exception e){
@@ -61,7 +62,41 @@ public class BookController {
         }
     }
 
+    @RequestMapping("/books/get")
+    @ResponseBody
+    public Object bookShop() {
+//        System.out.println(bookShops);
+        for (Book e:books) {
+            if(!showBooks.contains(e)){
+                System.out.println("shopName: "+shopName);
+                System.out.println("e.shopName: "+e.getShop_name());
+                if(e.getShop_name().equals(shopName)){
+                    showBooks.add(e);
+                }
+            }
+        }
+        System.out.println("XXXXXXXXXXXXXXXXXXX"+showBooks.toString());
+        return showBooks;
+    }
 
+
+    @RequestMapping(path = "/api/deleteBook/{id}")
+    @ResponseBody
+    public Object deleteBookShop(@PathVariable("id") String id){
+
+        try {
+            int e = Integer.parseInt(id);
+            System.out.println(e);
+            //When the APP is stopped, the id in the database will not be cleared,
+            // but the ArrayList in the APP will be cleared, so it is necessary to subtract a certain value.
+            books.get(e-bookValue).setBookName(null);
+            bookService.delete(e);
+            //Status code
+            return "200";
+        }catch (Exception e){
+            return "406";
+        }
+    }
 
 
 
