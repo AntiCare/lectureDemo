@@ -1,5 +1,6 @@
 
 var bookShop_name;
+var bookShop_id
 
 /**
  * change title to bookshop name.
@@ -10,8 +11,9 @@ fetch('/books/getShopName',{
 }).then(res=>res.text())
     .then(data=>{
         if (data!=null){
-            bookShop_name=data;
-            document.getElementById("title").innerHTML=data;
+            bookShop_name=data.toString().substring(0, data.toString().indexOf(";"));
+            bookShop_id=data.toString().substring(data.toString().indexOf(";")+1, data.toString().length);
+            document.getElementById("title").innerHTML=bookShop_name;
            console.log(data);
         }
     })
@@ -38,7 +40,7 @@ fetch('/books/get',{
         if(data!=null){
             for (var i = 0; i < data.length; i++){
                 if (data[i].bookName!= null){
-                    if(data[i].shop_name===bookShop_name.toString()){
+                    if(data[i].shop_id.toString()===bookShop_id){
                     //create value in table.
                     var main = document.getElementById("main");
                     var button = document.getElementById("addButton");
@@ -94,6 +96,15 @@ fetch('/books/get',{
                     /**
                      * Update book .
                      */
+                    updateButton.addEventListener('click',function (event) {
+                            var id = this.id.replace("update","");
+                            window.location.href='/api/'+id+'/updateBooks';
+                    })
+
+
+
+
+
                     //Insert value.
                     main.insertBefore(table,button);
                     table.appendChild(bookName);

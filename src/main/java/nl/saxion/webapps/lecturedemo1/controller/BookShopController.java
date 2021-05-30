@@ -2,6 +2,7 @@ package nl.saxion.webapps.lecturedemo1.controller;
 
 import nl.saxion.webapps.lecturedemo1.moduls.Book;
 import nl.saxion.webapps.lecturedemo1.moduls.BookShop;
+import nl.saxion.webapps.lecturedemo1.service.BookService;
 import nl.saxion.webapps.lecturedemo1.service.BookShopService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +15,14 @@ public class BookShopController {
 
      public static ArrayList<BookShop> bookShops = new ArrayList<>();
      public static ArrayList<BookShop> showUserShop = new ArrayList<>();
+     public static ArrayList<Integer> deleteBooks=new ArrayList<>();
      public static int shop_id;
      public static int value;
      public static int update_id;
     @Resource
     private BookShopService bookShopService;
+    @Resource
+    private BookService bookService;
 
     @RequestMapping("/bookShops/get")
     @ResponseBody
@@ -87,7 +91,17 @@ public class BookShopController {
             //When the APP is stopped, the id in the database will not be cleared,
             // but the ArrayList in the APP will be cleared, so it is necessary to subtract a certain value.
             bookShops.get(e-value).setShopName(null);
+            //delete shop.
             bookShopService.delete(e);
+            //delete book.
+            for (Book each:BookController.books) {
+                if(each.getShop_id()==e){
+                    deleteBooks.add(each.getId());
+                }
+            }
+            System.out.println("deleteBooks: "+deleteBooks.toString());
+            bookService.deleteBooks(deleteBooks);
+            deleteBooks.clear();
             //Status code
             return "200";
         }catch (Exception e){

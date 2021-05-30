@@ -31,15 +31,15 @@ public class Book {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "shop_name")
-    private String shop_name;
+    @Column(name = "shop_id")
+    private Integer shop_id;
 
-    public String getShop_name() {
-        return shop_name;
+    public Integer getShop_id() {
+        return shop_id;
     }
 
-    public void setShop_name(String shop_name) {
-        this.shop_name = shop_name;
+    public void setShop_id(Integer shop_id) {
+        this.shop_id = shop_id;
     }
 
     public Integer getId() {
@@ -99,7 +99,7 @@ public class Book {
                 ", price=" + price +
                 ", category='" + category + '\'' +
                 ", description='" + description + '\'' +
-                ", shop_name='" + shop_name + '\'' +
+                ", shop_id=" + shop_id +
                 '}';
     }
 }

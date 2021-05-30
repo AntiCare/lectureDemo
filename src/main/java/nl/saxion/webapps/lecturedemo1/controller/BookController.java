@@ -4,7 +4,6 @@ package nl.saxion.webapps.lecturedemo1.controller;
 import nl.saxion.webapps.lecturedemo1.moduls.Book;
 import nl.saxion.webapps.lecturedemo1.moduls.BookShop;
 import nl.saxion.webapps.lecturedemo1.service.BookService;
-import nl.saxion.webapps.lecturedemo1.service.BookShopService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +20,9 @@ public class BookController {
     public static ArrayList<Book> books = new ArrayList<>();
     public static ArrayList<Book> showBooks = new ArrayList<>();
     public static String shopName;
+    public static Integer shopId;
     public static int bookValue;
+    public static int bookUpdate_id;
     @Resource
     private BookService bookService;
 
@@ -36,7 +37,8 @@ public class BookController {
     @ResponseBody
     public Object getShopName(){
         shopName =BookShopController.bookShops.get(BookShopController.shop_id-BookShopController.value).getShopName();
-        return BookShopController.bookShops.get(BookShopController.shop_id-BookShopController.value).getShopName();
+        shopId=BookShopController.bookShops.get(BookShopController.shop_id-BookShopController.value).getId();
+        return shopName+";"+shopId;
     }
 
     @GetMapping(path = "/addBook")
@@ -50,7 +52,7 @@ public class BookController {
     public Object AddBook(Book book){
         try{
             System.out.println("shop name: "+shopName);
-            book.setShop_name(shopName);
+            book.setShop_id(shopId);
             bookService.add(book);
             System.out.println(book.toString());
             books.add(book);
@@ -69,13 +71,12 @@ public class BookController {
         for (Book e:books) {
             if(!showBooks.contains(e)){
                 System.out.println("shopName: "+shopName);
-                System.out.println("e.shopName: "+e.getShop_name());
-                if(e.getShop_name().equals(shopName)){
+                System.out.println("e.shopName: "+e.getShop_id());
+                if(e.getShop_id().equals(shopId)){
                     showBooks.add(e);
                 }
             }
         }
-        System.out.println("XXXXXXXXXXXXXXXXXXX"+showBooks.toString());
         return showBooks;
     }
 
@@ -96,6 +97,32 @@ public class BookController {
         }catch (Exception e){
             return "406";
         }
+    }
+
+
+    //update
+    @RequestMapping(path = "/updateBook/update")
+    @ResponseBody
+    public Object updateBookUpdate(Book book){
+        try{
+            book.setShop_id(shopId);
+            bookService.update(bookUpdate_id,book);
+            books.get(bookUpdate_id-bookValue).setBookName(book.getBookName());
+            books.get(bookUpdate_id-bookValue).setStock(book.getStock());
+            books.get(bookUpdate_id-bookValue).setPrice(book.getPrice());
+            books.get(bookUpdate_id-bookValue).setCategory(book.getCategory());
+            books.get(bookUpdate_id-bookValue).setDescription(book.getDescription());
+            return BookShopController.shop_id;
+        }catch (Exception e){
+            return "406";
+        }
+    }
+
+
+    @GetMapping(path = "/api/{id}/updateBooks")
+    public Object updateBook(@PathVariable("id")String id) {
+        bookUpdate_id=Integer.parseInt(id);
+        return "UpdateBook";
     }
 
 

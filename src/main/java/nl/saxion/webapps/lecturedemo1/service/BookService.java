@@ -7,6 +7,7 @@ import nl.saxion.webapps.lecturedemo1.repository.BookShopRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 
 @Service
 public class BookService {
@@ -19,5 +20,16 @@ public class BookService {
 
     public void delete(Integer id) {
         bookRepository.deleteById(id);
+    }
+
+    public void update(int id ,Book book){
+        book.setId(id);
+        bookRepository.save(book);
+    }
+
+    public void deleteBooks(ArrayList<Integer> arrayList){
+        for (Integer id:arrayList) {
+            bookRepository.deleteById(id);
+        }
     }
 }

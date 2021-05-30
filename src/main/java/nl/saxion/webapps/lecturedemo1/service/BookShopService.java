@@ -11,6 +11,10 @@ public class BookShopService {
     @Resource
     private BookShopRepository bookShopRepository;
 
+    public BookShop getShopById(Integer id){
+        return bookShopRepository.getOne(id);
+    }
+
     public void add(BookShop bookShop) {
         bookShopRepository.save(bookShop);
     }
@@ -23,6 +27,5 @@ public class BookShopService {
     public void delete(Integer id) {
         bookShopRepository.deleteById(id);
     }
-
 
 }
