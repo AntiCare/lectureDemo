@@ -95,7 +95,7 @@ public class BookShopController {
             bookShopService.delete(e);
             //delete book.
             for (Book each:BookController.books) {
-                if(each.getShop_id()==e){
+                if(each.getBookName()!=null && each.getShop_id()==e){
                     deleteBooks.add(each.getId());
                 }
             }
