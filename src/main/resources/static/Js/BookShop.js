@@ -1,7 +1,7 @@
 /**
  * Get book shop.
  */
-fetch('/bookShops/get',{
+fetch('/api/getBooksShops',{
         method:'get'
     }).then(res=>res.json())
         .then(data=>{
@@ -46,7 +46,7 @@ fetch('/bookShops/get',{
                         //use fetch to send id to backend. but this id start from 0, so it need to add 1 later at backend because mySQL start from 1.
                         deleteButton.addEventListener('click',function (event) {
                             var id = this.id;
-                            fetch('/bookShops/delete/'+id,{
+                            fetch('/api/deleteBookshop/'+id,{
                                 method:'DELETE',
                             })
                                 .then(res => res.json())

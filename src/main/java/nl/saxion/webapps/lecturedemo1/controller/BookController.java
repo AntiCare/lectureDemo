@@ -64,7 +64,7 @@ public class BookController {
         }
     }
 
-    @RequestMapping("/books/get")
+    @RequestMapping("/api/getBooks")
     @ResponseBody
     public Object bookShop() {
 //        System.out.println(bookShops);
@@ -101,7 +101,7 @@ public class BookController {
 
 
     //update
-    @RequestMapping(path = "/updateBook/update")
+    @RequestMapping(path = "/api/updateBook")
     @ResponseBody
     public Object updateBookUpdate(Book book){
         try{
@@ -119,7 +119,7 @@ public class BookController {
     }
 
 
-    @GetMapping(path = "/api/{id}/updateBooks")
+    @GetMapping(path = "/update/{id}/updateBooks")
     public Object updateBook(@PathVariable("id")String id) {
         bookUpdate_id=Integer.parseInt(id);
         return "UpdateBook";

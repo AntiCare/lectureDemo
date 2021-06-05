@@ -24,7 +24,7 @@ public class BookShopController {
     @Resource
     private BookService bookService;
 
-    @RequestMapping("/bookShops/get")
+    @RequestMapping("/api/getBooksShops")
     @ResponseBody
     public Object bookShop() {
 //        System.out.println(bookShops);
@@ -44,7 +44,7 @@ public class BookShopController {
     }
 
 
-    @RequestMapping(path = "/addBookShop/add")
+    @RequestMapping(path = "/api/addBookshop")
     @ResponseBody
     public Object AddBookShopAdd(BookShop bookShop){
 
@@ -63,7 +63,7 @@ public class BookShopController {
     }
 
 
-    @RequestMapping(path = "updateBookShop/update")
+    @RequestMapping(path = "/api/updateBookshop")
     @ResponseBody
     public Object updateBookShopUpdate(BookShop bookShop){
 
@@ -81,7 +81,7 @@ public class BookShopController {
     }
 
 
-    @RequestMapping(path = "/bookShops/delete/{id}")
+    @RequestMapping(path = "/api/deleteBookshop/{id}")
     @ResponseBody
     public Object deleteBookShop(@PathVariable("id") String id){
 

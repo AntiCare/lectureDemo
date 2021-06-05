@@ -26,7 +26,7 @@ fetch('/books/getShopName',{
  * get books
  */
 
-fetch('/books/get',{
+fetch('/api/getBooks',{
     method:'get'
 }).then(res=>res.json())
     .then(data=>{
@@ -98,7 +98,7 @@ fetch('/books/get',{
                      */
                     updateButton.addEventListener('click',function (event) {
                             var id = this.id.replace("update","");
-                            window.location.href='/api/'+id+'/updateBooks';
+                            window.location.href='/update/'+id+'/updateBooks';
                     })
 
 

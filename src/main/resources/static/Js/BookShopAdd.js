@@ -7,7 +7,7 @@
         m.preventDefault();
         const fromData2 =new FormData(this);
 //use fetch send the data to backend.
-        fetch('/addBookShop/add',{
+        fetch('/api/addBookshop',{
             method:'post',
             body:fromData2
         }).then(res=>res.json())

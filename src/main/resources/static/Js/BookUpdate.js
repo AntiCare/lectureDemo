@@ -8,7 +8,7 @@ myForm.addEventListener('submit',function (m) {
     m.preventDefault();
     const fromData =new FormData(this);
 //use fetch send the data to backend.
-    fetch('/updateBook/update',{
+    fetch('/api/updateBook',{
         method:'PUT',
         body:fromData
     }).then(res=>res.json())
