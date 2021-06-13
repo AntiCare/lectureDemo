@@ -5,6 +5,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+/**
+ * This is Additional function. Note function by thymeleaf.
+ * Not the main part, I added it because I learned thymeleaf in this course last year.
+ */
 @Service
 public class EventsDataProvider {
     public static ArrayList<Event> eventss;

@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 
+/**
+ * This is Additional function. Note function by thymeleaf.
+ * Not the main part, I added it because I learned thymeleaf in this course last year.
+ */
 public class EventsController {
 
     @GetMapping(path = "/events")

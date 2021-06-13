@@ -1,5 +1,10 @@
 package nl.saxion.webapps.lecturedemo1.moduls;
 
+
+/**
+ * This is Additional function. Note function by thymeleaf.
+ * Not the main part, I added it because I learned thymeleaf in this course last year.
+ */
 public class Event {
      int id;
     private static int idCounter = 0;
